@@ -1,8 +1,6 @@
 package com.akechsalim.demo.todo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -23,7 +21,15 @@ public class Todo {
 	}
 
 	@Id
-	@GeneratedValue
+	@SequenceGenerator(
+			name = "todo_sequence",
+			sequenceName = "todo_sequence",
+			allocationSize = 1
+	)
+	@GeneratedValue(
+			strategy = GenerationType.SEQUENCE,
+			generator = "todo_sequence"
+	)
 	private Integer id;
 
 	private String username;
