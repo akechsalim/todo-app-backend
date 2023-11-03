@@ -10,7 +10,7 @@ import java.util.function.Predicate;
 @Service
 public class TodoService {
 	
-	private static List<Todo> todos = new ArrayList<>();
+	private static final List<Todo> todos = new ArrayList<>();
 	
 	private static int todosCount = 0;
 	
