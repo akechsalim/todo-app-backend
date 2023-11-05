@@ -1,10 +1,6 @@
 package com.akechsalim.demo.todo;
 
-import jakarta.persistence.*;
-
 import java.time.LocalDate;
-
-@Entity
 public class Todo {
 
 	public Todo() {
@@ -19,17 +15,6 @@ public class Todo {
 		this.targetDate = targetDate;
 		this.done = done;
 	}
-
-	@Id
-	@SequenceGenerator(
-			name = "todo_sequence",
-			sequenceName = "todo_sequence",
-			allocationSize = 1
-	)
-	@GeneratedValue(
-			strategy = GenerationType.SEQUENCE,
-			generator = "todo_sequence"
-	)
 	private Integer id;
 
 	private String username;
