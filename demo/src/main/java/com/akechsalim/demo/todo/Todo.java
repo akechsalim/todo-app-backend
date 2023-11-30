@@ -1,28 +1,29 @@
 package com.akechsalim.demo.todo;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
+@Entity
 public class Todo {
+	@Id
+	@SequenceGenerator(name = "todo_sequence", sequenceName = "todo_sequence")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "todo_sequence")
+	private Integer id;
+	private String username;
+	private String description;
+	private LocalDate targetDate;
+	private boolean done;
 
 	public Todo() {
 		
 	}
-	
-	public Todo(Integer id, String username, String description, LocalDate targetDate, boolean done) {
-		super();
-		this.id = id;
+
+	public Todo(String username, String description, LocalDate targetDate, boolean done) {
 		this.username = username;
 		this.description = description;
 		this.targetDate = targetDate;
 		this.done = done;
 	}
-	private Integer id;
-
-	private String username;
-	
-	private String description;
-	private LocalDate targetDate;
-	private boolean done;
-
 	public Integer getId() {
 		return id;
 	}
@@ -65,8 +66,12 @@ public class Todo {
 
 	@Override
 	public String toString() {
-		return "Todo [id=" + id + ", username=" + username + ", description=" + description + ", targetDate="
-				+ targetDate + ", done=" + done + "]";
+		return "Todo{" +
+				"id=" + id +
+				", username='" + username + '\'' +
+				", description='" + description + '\'' +
+				", targetDate=" + targetDate +
+				", done=" + done +
+				'}';
 	}
-
 }
