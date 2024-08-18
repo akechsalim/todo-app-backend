@@ -1,22 +1,13 @@
 package com.akechsalim.demo.todo;
 
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.function.Predicate;
 
 @Service
 public class TodoService {
-//
-//	private static final List<Todo> todos = new ArrayList<>();
-//
-//	static {
-//		todos.add(new Todo("akechsalim","Get AWS Certified", LocalDate.now().plusYears(1), false ));
-//		todos.add(new Todo("akechsalim","Learn DevOps", LocalDate.now().plusYears(1), false ));
-//		todos.add(new Todo("akechsalim","Learn Full Stack Development", LocalDate.now().plusYears(2), false ));
-//	}
-
     private final TodoRepository todoRepository;
 
     public TodoService(TodoRepository todoRepository) {
